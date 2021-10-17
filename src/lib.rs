@@ -70,14 +70,14 @@ impl From<String> for FuzzyPath {
 		string.as_str().into()
 	}
 }
-impl Into<PathBuf> for FuzzyPath {
-	fn into(self) -> PathBuf {
-		PathBuf::from(self.0)
+impl From<FuzzyPath> for PathBuf {
+	fn from(fuzzy: FuzzyPath) -> Self {
+		PathBuf::from(fuzzy.0)
 	}
 }
-impl Into<String> for FuzzyPath {
-	fn into(self) -> String {
-		self.0
+impl From<FuzzyPath> for String {
+	fn from(fuzzy: FuzzyPath) -> Self {
+		fuzzy.0
 	}
 }
 impl AsRef<String> for FuzzyPath {
