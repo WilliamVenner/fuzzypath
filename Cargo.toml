@@ -1,0 +1,13 @@
+[package]
+name = "fuzzypath"
+version = "1.0.0"
+edition = "2018"
+description = "Quick & dirty fuzzy path comparison"
+authors = ["William Venner <william@venner.io>"]
+license = "MIT"
+keywords = ["fuzzy", "path", "comparison", "cmp", "partialeq"]
+categories = ["rust-patterns", "text-processing", "data-structures"]
+repository = "https://github.com/WilliamVenner/fuzzypath"
+
+[dependencies]
+serde = { version = "1", features = ["derive"], optional = true }
