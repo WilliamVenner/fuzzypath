@@ -34,7 +34,7 @@ impl FuzzyPath {
 	/// It is a logic error to construct a `FuzzyPath` from a string that is not correctly normalized.
 	///
 	/// To see the normalization implementation, see the `From<&str>` implementation for `FuzzyPath`
-	pub unsafe fn from_str_unchecked<S: Into<String>>(str: S) -> Self {
+	pub unsafe fn from_string_unchecked<S: Into<String>>(str: S) -> Self {
 		FuzzyPath(str.into())
 	}
 
