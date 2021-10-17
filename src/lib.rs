@@ -101,7 +101,7 @@ impl Borrow<String> for FuzzyPath {
 	}
 }
 impl FromStr for FuzzyPath {
-	type Err = (); // Maybe use `!` when it's stabilized?
+	type Err = std::convert::Infallible;
 
 	fn from_str(s: &str) -> Result<Self, Self::Err> {
 		Ok(s.into())
