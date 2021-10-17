@@ -86,6 +86,11 @@ impl From<String> for FuzzyPath {
 		string.as_str().into()
 	}
 }
+impl From<&String> for FuzzyPath {
+	fn from(string: &String) -> Self {
+		string.as_str().into()
+	}
+}
 impl From<FuzzyPath> for PathBuf {
 	fn from(fuzzy: FuzzyPath) -> Self {
 		PathBuf::from(fuzzy.0)
