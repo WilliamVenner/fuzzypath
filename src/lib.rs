@@ -109,6 +109,11 @@ impl FromStr for FuzzyPath {
 		Ok(s.into())
 	}
 }
+impl ToString for FuzzyPath {
+	fn to_string(&self) -> String {
+		self.0.to_string()
+	}
+}
 
 #[cfg(feature = "serde")]
 mod serde;
