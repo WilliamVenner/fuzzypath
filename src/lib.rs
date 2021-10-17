@@ -10,6 +10,7 @@
 //! * ✅ Repeating slashes are normalized to a single slash
 //! * ❌ Comparing a Windows path with a POSIX path will not work if either is absolute (Windows paths with a drive letter, POSIX paths with a preceeding slash)
 //! * ❌ Comparing a Windows UNC path will not work with any POSIX path
+//! * ❌ POSIX paths can contain backslashes in file names, but Windows paths cannot - these will be normalized to forward slashes and you will lose that information
 
 use std::{borrow::Borrow, path::PathBuf, str::FromStr};
 
@@ -25,6 +26,7 @@ use std::{borrow::Borrow, path::PathBuf, str::FromStr};
 /// * ✅ Repeating slashes are normalized to a single slash
 /// * ❌ Comparing a Windows path with a POSIX path will not work if either is absolute (Windows paths with a drive letter, POSIX paths with a preceeding slash)
 /// * ❌ Comparing a Windows UNC path will not work with any POSIX path
+/// * ❌ POSIX paths can contain backslashes in file names, but Windows paths cannot - these will be normalized to forward slashes and you will lose that information
 #[derive(Debug, Default, PartialEq, Eq, PartialOrd, Ord, Hash, Clone)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize))]
 pub struct FuzzyPath(String);
