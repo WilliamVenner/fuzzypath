@@ -37,6 +37,20 @@ impl FuzzyPath {
 	pub unsafe fn from_str_unchecked<S: Into<String>>(str: S) -> Self {
 		FuzzyPath(str.into())
 	}
+
+	/// Returns the underlying normalized `String` of the path.
+	///
+	/// This is lossy because not all paths are UTF-8 and it has been normalized.
+	pub fn into_string_lossy(self) -> String {
+		self.0
+	}
+
+	/// Returns the underlying normalized `String` of the path as a `&str`
+	///
+	/// This is lossy because not all paths are UTF-8 and it has been normalized.
+	pub fn as_str_lossy(&self) -> &str {
+		self.0.as_str()
+	}
 }
 impl From<&str> for FuzzyPath {
 	fn from(str: &str) -> Self {
